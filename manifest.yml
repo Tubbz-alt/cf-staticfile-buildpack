@@ -17,16 +17,22 @@ dependencies:
   uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.15.8-linux-x64-cflinuxfs3-6f865593.tgz
   version: 1.15.8
 - cf_stacks:
-  - opensuse42
-  name: nginx
-  sha256: f3ce78276ed8078abdcc6ad21c7db249ec82430325ee04c5f3686cf9c6aa945e
-  uri: https://cf-buildpacks.suse.com/dependencies/nginx/nginx-1.15.8-linux-x64-opensuse42-f3ce7827.tgz
-  version: 1.15.8
-- cf_stacks:
   - sle12
   name: nginx
-  sha256: 730b6af9d5903fe5401e87ede3220fcc05e6ccd69e4546113832ed5af4aa1954
-  uri: https://cf-buildpacks.suse.com/dependencies/nginx/nginx-1.15.8-linux-x64-sle12-730b6af9.tgz
+  sha256: 1ef0142a620e786f1cf68c546733e0d816d7acd5032d2b0fa15972f20adb572f
+  uri: https://cf-buildpacks.suse.com/dependencies/nginx/nginx-1.15.8-linux-x64-sle12-1ef0142a.tgz
+  version: 1.15.8
+- cf_stacks:
+  - opensuse42
+  name: nginx
+  sha256: fb7044cac835abe5fda49a069db6d5ca0ea27a253d59318f7e11f536479cb2f6
+  uri: https://cf-buildpacks.suse.com/dependencies/nginx/nginx-1.15.8-linux-x64-opensuse42-fb7044ca.tgz
+  version: 1.15.8
+- cf_stacks:
+  - cfsle15fs
+  name: nginx
+  sha256: 67e3ae9cf614ce83b7abab6a1d1f7534d4b2e0cf2f46735c01d6d796e4bce207
+  uri: https://cf-buildpacks.suse.com/dependencies/nginx/nginx-1.15.8-linux-x64-cfsle15fs-67e3ae9c.tgz
   version: 1.15.8
 include_files:
 - CHANGELOG
