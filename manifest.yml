@@ -1,24 +1,39 @@
----
-language: staticfile
 default_versions:
 - name: nginx
   version: 1.15.8
 dependencies:
-- name: nginx
-  version: 1.15.8
-  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.15.8-linux-x64-cflinuxfs2-48b8f057.tgz
-  sha256: 48b8f05773d09ffb299b07be95f38f3d332be1fc1571bda345904223c0ab7420
-  cf_stacks:
+- cf_stacks:
   - cflinuxfs2
+  name: nginx
+  sha256: 48b8f05773d09ffb299b07be95f38f3d332be1fc1571bda345904223c0ab7420
   source: http://nginx.org/download/nginx-1.15.8.tar.gz
-- name: nginx
+  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.15.8-linux-x64-cflinuxfs2-48b8f057.tgz
   version: 1.15.8
-  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.15.8-linux-x64-cflinuxfs3-6f865593.tgz
-  sha256: 6f8655939d1dbcfca368cfada17034bf5e8e6500537f9d96d08bd4de90080d73
-  cf_stacks:
+- cf_stacks:
   - cflinuxfs3
+  name: nginx
+  sha256: 6f8655939d1dbcfca368cfada17034bf5e8e6500537f9d96d08bd4de90080d73
   source: http://nginx.org/download/nginx-1.15.8.tar.gz
-pre_package: scripts/build.sh
+  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.15.8-linux-x64-cflinuxfs3-6f865593.tgz
+  version: 1.15.8
+- cf_stacks:
+  - sle12
+  name: nginx
+  sha256: 119dbbd8d9c652262d64cead812d02f3e03945f11026fee3ecde5e07d7fd0d51
+  uri: https://cf-buildpacks.suse.com/dependencies/nginx/nginx-1.15.8-linux-x64-sle12-119dbbd8.tgz
+  version: 1.15.8
+- cf_stacks:
+  - opensuse42
+  name: nginx
+  sha256: 6df8e40de2a784889b4c7b7d8e20dc5be9a47af7e77d7d30104c2bf55495f135
+  uri: https://cf-buildpacks.suse.com/dependencies/nginx/nginx-1.15.8-linux-x64-opensuse42-6df8e40d.tgz
+  version: 1.15.8
+- cf_stacks:
+  - sle15
+  name: nginx
+  sha256: a9d139d5fe73a936725a9123c6580124180dbeaab0efdd58a1c364397c58ba8f
+  uri: https://cf-buildpacks.suse.com/dependencies/nginx/nginx-1.15.8-linux-x64-sle15-a9d139d5.tgz
+  version: 1.15.8
 include_files:
 - CHANGELOG
 - CONTRIBUTING.md
@@ -34,3 +49,5 @@ include_files:
 - bin/release
 - bin/supply
 - manifest.yml
+language: staticfile
+pre_package: scripts/build.sh
