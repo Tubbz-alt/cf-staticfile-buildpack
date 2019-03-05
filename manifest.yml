@@ -1,26 +1,41 @@
----
-language: staticfile
 default_versions:
 - name: nginx
   version: 1.15.9
 dependencies:
-- name: nginx
-  version: 1.15.9
-  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.15.9-linux-x64-cflinuxfs2-ba737288.tgz
-  sha256: ba737288448f599f736102d118b3f7976a87b640cdcffa640ea1a0b485d78a5b
-  cf_stacks:
+- cf_stacks:
   - cflinuxfs2
+  name: nginx
+  sha256: ba737288448f599f736102d118b3f7976a87b640cdcffa640ea1a0b485d78a5b
   source: http://nginx.org/download/nginx-1.15.9.tar.gz
   source_sha256: e4cfba989bba614cd53f3f406ac6da9f05977d6b1296e5d20a299f10c2d7ae43
-- name: nginx
+  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.15.9-linux-x64-cflinuxfs2-ba737288.tgz
   version: 1.15.9
-  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.15.9-linux-x64-cflinuxfs3-52f983b1.tgz
-  sha256: 52f983b10274d707b14da665622621ede651eac2f822b15875960296a32bf983
-  cf_stacks:
+- cf_stacks:
   - cflinuxfs3
+  name: nginx
+  sha256: 52f983b10274d707b14da665622621ede651eac2f822b15875960296a32bf983
   source: http://nginx.org/download/nginx-1.15.9.tar.gz
   source_sha256: e4cfba989bba614cd53f3f406ac6da9f05977d6b1296e5d20a299f10c2d7ae43
-pre_package: scripts/build.sh
+  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.15.9-linux-x64-cflinuxfs3-52f983b1.tgz
+  version: 1.15.9
+- cf_stacks:
+  - sle12
+  name: nginx
+  sha256: c69da9acfadb53fc3773aea3e34cc1f1cf402917dceafb42da0b1be31bcdc7a2
+  uri: https://cf-buildpacks.suse.com/dependencies/nginx/nginx-1.15.9-linux-x64-sle12-c69da9ac.tgz
+  version: 1.15.9
+- cf_stacks:
+  - opensuse42
+  name: nginx
+  sha256: da5a4c3102c53e7672a7ea2c9bd357749641d073f83ec1753a16058010120d99
+  uri: https://cf-buildpacks.suse.com/dependencies/nginx/nginx-1.15.9-linux-x64-opensuse42-da5a4c31.tgz
+  version: 1.15.9
+- cf_stacks:
+  - sle15
+  name: nginx
+  sha256: bd7e1b085ed4d92cc953fb790373a0a42715dd45ddc37d2ce2b5c0537c79bde0
+  uri: https://cf-buildpacks.suse.com/dependencies/nginx/nginx-1.15.9-linux-x64-sle15-bd7e1b08.tgz
+  version: 1.15.9
 include_files:
 - CHANGELOG
 - CONTRIBUTING.md
@@ -36,3 +51,5 @@ include_files:
 - bin/release
 - bin/supply
 - manifest.yml
+language: staticfile
+pre_package: scripts/build.sh
