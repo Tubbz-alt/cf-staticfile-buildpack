@@ -1,42 +1,63 @@
----
-language: staticfile
 default_versions:
 - name: nginx
   version: 1.15.x
 dependencies:
-- name: nginx
-  version: 1.15.12
-  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.15.12-linux-x64-cflinuxfs2-4d0440ef.tgz
+- cf_stacks:
+  - cflinuxfs2
+  name: nginx
   sha256: 4d0440ef3bd59478e8adae2d8bebd329b7e8fa63abdd242f3696bc28677e2f6a
-  cf_stacks:
-  - cflinuxfs2
   source: http://nginx.org/download/nginx-1.15.12.tar.gz
   source_sha256: 3d5b90aa17de1700709ae4ec6c4d73d87c888b06c510391bf7104b006fdb2abe
-- name: nginx
+  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.15.12-linux-x64-cflinuxfs2-4d0440ef.tgz
   version: 1.15.12
-  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.15.12-linux-x64-cflinuxfs3-4b82e605.tgz
-  sha256: 4b82e60517a49e6c4320415e460e8ef7975764b469bb570a5dce0a90fdf47173
-  cf_stacks:
+- cf_stacks:
   - cflinuxfs3
+  name: nginx
+  sha256: 4b82e60517a49e6c4320415e460e8ef7975764b469bb570a5dce0a90fdf47173
   source: http://nginx.org/download/nginx-1.15.12.tar.gz
   source_sha256: 3d5b90aa17de1700709ae4ec6c4d73d87c888b06c510391bf7104b006fdb2abe
-- name: nginx
-  version: 1.17.0
-  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.17.0-linux-x64-cflinuxfs2-f35aff96.tgz
-  sha256: f35aff96e3daf4f1655586682a8732f812fb105935d30299c2a505de6f769249
-  cf_stacks:
+  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.15.12-linux-x64-cflinuxfs3-4b82e605.tgz
+  version: 1.15.12
+- cf_stacks:
   - cflinuxfs2
+  name: nginx
+  sha256: f35aff96e3daf4f1655586682a8732f812fb105935d30299c2a505de6f769249
   source: http://nginx.org/download/nginx-1.17.0.tar.gz
   source_sha256: e21b5d06cd53e86afb94f0b3678e0abb0c0f011433471fa3d895cefa65ae0fab
-- name: nginx
+  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.17.0-linux-x64-cflinuxfs2-f35aff96.tgz
   version: 1.17.0
-  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.17.0-linux-x64-cflinuxfs3-10287b21.tgz
-  sha256: 10287b218411cd972ee1747f5a93e5efd6aa5d4dc4c089b4883cb419905abd5c
-  cf_stacks:
+- cf_stacks:
   - cflinuxfs3
+  name: nginx
+  sha256: 10287b218411cd972ee1747f5a93e5efd6aa5d4dc4c089b4883cb419905abd5c
   source: http://nginx.org/download/nginx-1.17.0.tar.gz
   source_sha256: e21b5d06cd53e86afb94f0b3678e0abb0c0f011433471fa3d895cefa65ae0fab
-pre_package: scripts/build.sh
+  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.17.0-linux-x64-cflinuxfs3-10287b21.tgz
+  version: 1.17.0
+- cf_stacks:
+  - sle12
+  name: nginx
+  sha256: 7286d4d369784bb72e857e855e3128ff500cb5791a57666811e6f3d000c622b7
+  uri: https://cf-buildpacks.suse.com/dependencies/nginx/nginx-1.15.12-linux-x64-sle12-7286d4d3.tgz
+  version: 1.15.12
+- cf_stacks:
+  - sle12
+  name: nginx
+  sha256: 489dc97f5b454c88a285888bfadbccc54ee0bea4d5dc3764be9b0d3a00f4f603
+  uri: https://cf-buildpacks.suse.com/dependencies/nginx/nginx-1.17.0-linux-x64-sle12-489dc97f.tgz
+  version: 1.17.0
+- cf_stacks:
+  - sle15
+  name: nginx
+  sha256: 090546685a8a2e6d18e723252297dde07706559148c278b4f1e6a74634f98150
+  uri: https://cf-buildpacks.suse.com/dependencies/nginx/nginx-1.15.12-linux-x64-sle15-09054668.tgz
+  version: 1.15.12
+- cf_stacks:
+  - sle15
+  name: nginx
+  sha256: a3d453b79f06497b1c6acdc9ab99d6cc89a07ac08a1db3308acd983bd323afb9
+  uri: https://cf-buildpacks.suse.com/dependencies/nginx/nginx-1.17.0-linux-x64-sle15-a3d453b7.tgz
+  version: 1.17.0
 include_files:
 - CHANGELOG
 - CONTRIBUTING.md
@@ -52,3 +73,5 @@ include_files:
 - bin/release
 - bin/supply
 - manifest.yml
+language: staticfile
+pre_package: scripts/build.sh
