@@ -1,42 +1,72 @@
----
-language: staticfile
 default_versions:
 - name: nginx
   version: 1.15.x
 dependencies:
-- name: nginx
-  version: 1.15.12
-  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.15.12-linux-x64-cflinuxfs2-d52563a2.tgz
+- cf_stacks:
+  - cflinuxfs2
+  name: nginx
   sha256: d52563a2448cf7cca1ca685bde33515ccfbd96eaa130331c141095b1b48ae028
-  cf_stacks:
-  - cflinuxfs2
   source: http://nginx.org/download/nginx-1.15.12.tar.gz
   source_sha256: 3d5b90aa17de1700709ae4ec6c4d73d87c888b06c510391bf7104b006fdb2abe
-- name: nginx
+  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.15.12-linux-x64-cflinuxfs2-d52563a2.tgz
   version: 1.15.12
-  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.15.12-linux-x64-cflinuxfs3-4cbec356.tgz
-  sha256: 4cbec356df7e05fe606ea6fc843dc7ec664affb50bd528b5760e9bcc8771e909
-  cf_stacks:
+- cf_stacks:
   - cflinuxfs3
+  name: nginx
+  sha256: 4cbec356df7e05fe606ea6fc843dc7ec664affb50bd528b5760e9bcc8771e909
   source: http://nginx.org/download/nginx-1.15.12.tar.gz
   source_sha256: 3d5b90aa17de1700709ae4ec6c4d73d87c888b06c510391bf7104b006fdb2abe
-- name: nginx
-  version: 1.17.3
-  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.17.3-linux-x64-cflinuxfs2-c8f18d90.tgz
-  sha256: c8f18d903eb001ff7a9c05740b325a855df925b3fee7ce180d8a4cfea4b364eb
-  cf_stacks:
+  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.15.12-linux-x64-cflinuxfs3-4cbec356.tgz
+  version: 1.15.12
+- cf_stacks:
   - cflinuxfs2
+  name: nginx
+  sha256: c8f18d903eb001ff7a9c05740b325a855df925b3fee7ce180d8a4cfea4b364eb
   source: http://nginx.org/download/nginx-1.17.3.tar.gz
   source_sha256: 3b84fe1c2cf9ca22fde370e486a9ab16b6427df1b6ea62cdb61978c9f34d0f3c
-- name: nginx
+  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.17.3-linux-x64-cflinuxfs2-c8f18d90.tgz
   version: 1.17.3
-  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.17.3-linux-x64-cflinuxfs3-3f6db241.tgz
-  sha256: 3f6db2411132fd94628b7d8302ca836e80d82935be7549eb6fc2ef22fb82aeb2
-  cf_stacks:
+- cf_stacks:
   - cflinuxfs3
+  name: nginx
+  sha256: 3f6db2411132fd94628b7d8302ca836e80d82935be7549eb6fc2ef22fb82aeb2
   source: http://nginx.org/download/nginx-1.17.3.tar.gz
   source_sha256: 3b84fe1c2cf9ca22fde370e486a9ab16b6427df1b6ea62cdb61978c9f34d0f3c
-pre_package: scripts/build.sh
+  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.17.3-linux-x64-cflinuxfs3-3f6db241.tgz
+  version: 1.17.3
+- cf_stacks:
+  - sle12
+  name: nginx
+  sha256: b7907c75c9579ffb557398c03f5512b4af650386b83231c6d9bbe1e16726ab59
+  uri: https://cf-buildpacks.suse.com/dependencies/nginx/nginx-1.15.12-linux-x64-sle12-b7907c75.tgz
+  version: 1.15.12
+- cf_stacks:
+  - sle12
+  name: nginx
+  sha256: e877b5e56472ec1ca51239922e1aea28801c25d7db95cf2c721dad2b90a4851d
+  uri: https://cf-buildpacks.suse.com/dependencies/nginx/nginx-1.17.3-linux-x64-sle12-e877b5e5.tgz
+  version: 1.17.3
+- cf_stacks:
+  - sle15
+  name: nginx
+  sha256: 090546685a8a2e6d18e723252297dde07706559148c278b4f1e6a74634f98150
+  uri: https://cf-buildpacks.suse.com/dependencies/nginx/nginx-1.15.12-linux-x64-sle15-09054668.tgz
+  version: 1.15.12
+- cf_stacks:
+  - sle15
+  name: nginx
+  sha256: 71b6d25ba3cad844f4e3dbbaf2e70a21f33d8fad187d72940297726a7fd54097
+  uri: https://cf-buildpacks.suse.com/dependencies/nginx/nginx-1.17.3-linux-x64-sle15-71b6d25b.tgz
+  version: 1.17.3
+dependency_deprecation_dates:
+- date: "2019-05-21"
+  link: https://nginx.org/
+  name: nginx
+  version_line: 1.15.x
+- date: "2020-05-01"
+  link: https://nginx.org/
+  name: nginx
+  version_line: 1.17.x
 include_files:
 - CHANGELOG
 - CONTRIBUTING.md
@@ -52,12 +82,5 @@ include_files:
 - bin/release
 - bin/supply
 - manifest.yml
-dependency_deprecation_dates:
-- version_line: 1.15.x
-  name: nginx
-  date: 2019-05-21
-  link: https://nginx.org/
-- version_line: 1.17.x
-  name: nginx
-  date: 2020-05-01
-  link: https://nginx.org/
+language: staticfile
+pre_package: scripts/build.sh
