@@ -1,18 +1,26 @@
----
-language: staticfile
 default_versions:
 - name: nginx
   version: 1.17.x
 dependencies:
-- name: nginx
-  version: 1.17.5
-  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.17.5-linux-x64-cflinuxfs3-a25b6e9a.tgz
-  sha256: a25b6e9a36e277705b1ca4bfdae78c5c6d108469f0895333a7acffe1bac0ef36
-  cf_stacks:
+- cf_stacks:
   - cflinuxfs3
+  name: nginx
+  sha256: a25b6e9a36e277705b1ca4bfdae78c5c6d108469f0895333a7acffe1bac0ef36
   source: http://nginx.org/download/nginx-1.17.5.tar.gz
   source_sha256: 63ee35e15a75af028ffa1f995e2b9c120b59ef5f1b61a23b8a4c33c262fc10c3
-pre_package: scripts/build.sh
+  uri: https://buildpacks.cloudfoundry.org/dependencies/nginx-static/nginx-1.17.5-linux-x64-cflinuxfs3-a25b6e9a.tgz
+  version: 1.17.5
+- cf_stacks:
+  - sle15
+  name: nginx
+  sha256: 70bf91c0fe54189d264be8163979ac25e2939e098dc0c9f6db0c562a9d9efcf2
+  uri: https://cf-buildpacks.suse.com/dependencies/nginx/nginx-1.17.5-linux-x64-sle15-70bf91c0.tgz
+  version: 1.17.5
+dependency_deprecation_dates:
+- date: "2020-05-01"
+  link: https://nginx.org/
+  name: nginx
+  version_line: 1.17.x
 include_files:
 - CHANGELOG
 - CONTRIBUTING.md
@@ -28,8 +36,5 @@ include_files:
 - bin/release
 - bin/supply
 - manifest.yml
-dependency_deprecation_dates:
-- version_line: 1.17.x
-  name: nginx
-  date: 2020-05-01
-  link: https://nginx.org/
+language: staticfile
+pre_package: scripts/build.sh
