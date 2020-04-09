@@ -21,6 +21,11 @@ var _ = Describe("CF Staticfile Buildpack", func() {
 
 	BeforeEach(func() {
 		dynatraceAPI = cutlass.New(Fixtures("fake_dynatrace_api"))
+		dynatraceAPI.Buildpacks = []string{
+			"https://github.com/suse/cf-go-buildpack#master",
+			"staticfile_buildpack",
+		}
+
 		dynatraceAPI.SetEnv("BP_DEBUG", "true")
 
 		Expect(dynatraceAPI.Push()).To(Succeed())
